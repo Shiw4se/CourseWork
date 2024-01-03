@@ -10,7 +10,7 @@ namespace Accounts
 {
     public class Account 
     {
-       private const int StartRating = 10;
+        private const int StartRating = 10;
         public int rating{ get; set; }
         
         public string Password { get; private set; }
@@ -45,7 +45,19 @@ namespace Accounts
         {
             acc.rating++;
         }
-        
+
+        public void LoseGame(Account acc)
+        {
+            if (acc.rating == 0)
+            {
+                acc.rating = 0;
+            }
+            else
+            {
+                acc.rating--; 
+            }
+            
+        }
         
     }
 }

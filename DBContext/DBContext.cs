@@ -51,8 +51,7 @@ namespace CourseWork.DBContexts
             string serializedAccount = JsonConvert.SerializeObject(allAccounts);
             File.WriteAllText(pathaccs, serializedAccount);
         }
-
-        
+            
         public void WriteGameHistory(GameHistory history)
         {
            

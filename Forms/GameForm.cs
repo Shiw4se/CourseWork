@@ -69,11 +69,12 @@ namespace CourseWork
                     
                     MessageBox.Show("X wins!");
                     CurrentAccount.WinGame(CurrentAccount);
+                    Opponent.LoseGame(Opponent);
                     var history = new GameHistory(CurrentAccount,Opponent,CurrentAccount.rating);
                     Base.WriteGameHistory(history);
                     CurrentAccount.GameHistoryList.Add(history);
                     Opponent.GameHistoryList.Add(history);
-                    Base.UpdateRating(CurrentAccount.ID, CurrentAccount.rating+1);
+                    Base.UpdateRating(CurrentAccount.ID, CurrentAccount.rating);
                     Clear();
                     ShowResultAndReturn();
                 }
@@ -86,12 +87,12 @@ namespace CourseWork
                 {
                     
                     MessageBox.Show("O wins!");
-                    Opponent.WinGame(CurrentAccount);
+                    CurrentAccount.LoseGame(CurrentAccount);
+                    Opponent.WinGame(Opponent);
                     var history = new GameHistory(CurrentAccount,Opponent,CurrentAccount.rating);
                     CurrentAccount.GameHistoryList.Add(history);
-                    Opponent.GameHistoryList.Add(history);
                     Base.WriteGameHistory(history);
-                    Base.UpdateRating(Opponent.ID, Opponent.rating+1);
+                    Base.UpdateRating(Opponent.ID, Opponent.rating);
                     Clear();
                     ShowResultAndReturn();
                 }
@@ -110,8 +111,7 @@ namespace CourseWork
         private void Clear()
         {
             t = 0;
-
-
+            
             for (int i = 1; i <= 9; i++)
             {
                 Button btn = Controls.Find($"button{i}", true).FirstOrDefault() as Button;
