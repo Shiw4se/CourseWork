@@ -6,7 +6,7 @@ namespace CourseWork.tic_tac_toe
 {
     public class Game
     {
-        public List<GameHistory> GameHistories;
+        
 
         private char[] board;
 
@@ -105,9 +105,6 @@ namespace CourseWork.tic_tac_toe
            
         }
         
-        public void RecordGameResult(Account currentPlayer, Account opponent)
-        {
-            GameHistories.Add(new GameHistory(currentPlayer, opponent,currentPlayer.rating));
-        }
+        
     }
 }
